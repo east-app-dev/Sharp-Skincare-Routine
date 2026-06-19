@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy · Sharp</title>
+<meta name="description" content="Privacy Policy for the Sharp app.">
+<link rel="icon" href="assets/icon.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="legal">
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html"><img src="assets/icon.png" alt="Sharp"> Sharp</a>
+    <nav class="nav-links">
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="index.html#download">Get Sharp</a>
+    </div>
+  </div>
+</header>
+
+<section class="legal-head">
+  <div class="wrap">
+    <span class="eyebrow">Legal</span>
+    <h1>Privacy Policy</h1>
+    <p class="upd">Last updated: June 2026</p>
+  </div>
+</section>
+
+<section class="wrap legal-body">
+
+  <h2 id="p1">1. Controller</h2>
+  <p>The data controller under the GDPR is:</p>
+  <address class="addr">
+    <b>Esat Karabiyik</b><br>
+    Bahnhofstraße 8a<br>
+    76676 Graben-Neudorf, Germany<br>
+    Email: <a href="mailto:daybeeapp-privacy@web.de">daybeeapp-privacy@web.de</a>
+  </address>
+
+  <h2 id="p2">2. Overview</h2>
+  <p>This Privacy Policy explains what personal data we process when you use the Sharp app, for what purposes, on what legal basis, and what rights you have.</p>
+  <p>In short:</p>
+  <ul>
+    <li>Sharp processes account data, quiz responses, face photos, and analysis results.</li>
+    <li>Face photos are stored on our servers and sent to an AI service for analysis.</li>
+    <li>We do not sell your data and use no advertising or analytics tracking SDKs.</li>
+    <li>Sharp does not provide medical diagnoses.</li>
+  </ul>
+
+  <h2 id="p3">3. What Data We Process</h2>
+
+  <h3>3.1 Account and Authentication Data</h3>
+  <p>When you register or sign in, we process:</p>
+  <ul>
+    <li>email address and password (for email registration),</li>
+    <li>authentication data from Sign in with Apple or Google (e.g. user ID, and name/email where you authorize it),</li>
+    <li>session and security information (JWT/token).</li>
+  </ul>
+  <p>Provider: Supabase Auth<br>
+  Purpose: account creation, sign-in, security<br>
+  Legal basis: Art. 6(1)(b) GDPR (performance of contract)</p>
+
+  <h3>3.2 Profile Data</h3>
+  <ul><li>display name (optional, provided during onboarding)</li></ul>
+  <p>Storage: Supabase database (profiles)<br>
+  Legal basis: Art. 6(1)(b) GDPR</p>
+
+  <h3>3.3 Onboarding Quiz and Skin Profile</h3>
+  <p>The quiz may collect, among other things:</p>
+  <ul>
+    <li>skin concerns and priorities,</li>
+    <li>age, skin type, existing routine,</li>
+    <li>products used, shaving frequency,</li>
+    <li>sleep, stress, SPF use, exercise,</li>
+    <li>water intake, time budget, product budget, commitment,</li>
+    <li>follow-up answers for specific concerns (e.g. affected area, patterns).</li>
+  </ul>
+  <p>Storage: Supabase database (onboarding)<br>
+  Purpose: personalization of analysis, plan, and recommendations<br>
+  Legal basis: Art. 6(1)(b) GDPR</p>
+
+  <h3>3.4 Face Photos and Scan Results</h3>
+  <p>For cosmetic skin analysis, we process:</p>
+  <ul>
+    <li>face photos (JPEG, compressed to approx. 1080 px width before upload),</li>
+    <li>scan week and timestamp,</li>
+    <li>cosmetic scores across 6 dimensions (clarity, oil, redness, pores/texture, eye area, hydration),</li>
+    <li>overall score (calculated on our servers),</li>
+    <li>cosmetic findings (text, severity, location),</li>
+    <li>AI model used.</li>
+  </ul>
+  <p>Storage:</p>
+  <ul>
+    <li>photos: private Supabase storage bucket face-scans</li>
+    <li>metadata and results: Supabase database (scans)</li>
+  </ul>
+  <p>Purpose: cosmetic skin analysis, progress tracking, plan adaptation<br>
+  Legal basis: Art. 6(1)(b) GDPR; for processing of facial images, where applicable Art. 9(2)(a) GDPR (explicit consent), which you give by actively using the scan feature.</p>
+  <div class="note"><b>Important:</b> Your photos are transmitted to an external AI vision service for analysis (see Section 5).</div>
+
+  <h3>3.5 Skincare Plans and Progress</h3>
+  <ul>
+    <li>personalized 8-week plan (morning/evening routine),</li>
+    <li>plan versions and adaptation reasons on re-scans,</li>
+    <li>daily routine completion (e.g. completed steps, water intake),</li>
+    <li>selected products (name, store, price, volume, affiliate flag).</li>
+  </ul>
+  <p>Storage: Supabase database (plans, plan_adaptations, task_completions, user_products) and locally on your device<br>
+  Legal basis: Art. 6(1)(b) GDPR</p>
+
+  <h3>3.6 Subscription and Payment Data</h3>
+  <p>Payment details (e.g. credit card) are not processed by us; they are handled exclusively by Apple through the App Store.</p>
+  <p>We store:</p>
+  <ul>
+    <li>subscription status (active/inactive),</li>
+    <li>product ID (e.g. weekly, annual, lifetime),</li>
+    <li>subscription start and expiry dates,</li>
+    <li>RevenueCat events for subscription synchronization.</li>
+  </ul>
+  <p>Providers: Apple App Store, RevenueCat<br>
+  Legal basis: Art. 6(1)(b) GDPR</p>
+
+  <h3>3.7 Location (Optional)</h3>
+  <p>If you grant location permission, we process:</p>
+  <ul>
+    <li>GPS coordinates temporarily to find nearby drugstores,</li>
+    <li>a derived country code (stored locally),</li>
+    <li>drugstore names, brands, and distances.</li>
+  </ul>
+  <p>Location coordinates are not permanently stored on our servers. Store lookup uses the OpenStreetMap Overpass API; climate data (UV index, humidity, temperature, air quality) is fetched via Open-Meteo and stored locally on your device.</p>
+  <p>Legal basis: Art. 6(1)(a) GDPR (consent, revocable in device settings)</p>
+
+  <h3>3.8 Local App Data</h3>
+  <p>On your device, we store among other things:</p>
+  <ul>
+    <li>app settings (language, dark mode, reminders),</li>
+    <li>local copies of scan photos in app storage,</li>
+    <li>cached catalog and recommendation data,</li>
+    <li>session data (Supabase Auth via AsyncStorage).</li>
+  </ul>
+  <p>Legal basis: Art. 6(1)(b) GDPR</p>
+
+  <h3>3.9 Technical Log Data</h3>
+  <p>On our servers, the following may be generated:</p>
+  <ul>
+    <li>AI usage logs (function name, timestamp) for abuse prevention,</li>
+    <li>RevenueCat webhook events,</li>
+    <li>standard server logs from our service providers.</li>
+  </ul>
+  <p>Legal basis: Art. 6(1)(f) GDPR (legitimate interest in operation and security)</p>
+
+  <h3>3.10 What We Do Not Collect</h3>
+  <ul>
+    <li>No advertising or analytics SDKs (no Google Analytics, Meta Pixel, Mixpanel, etc.)</li>
+    <li>No remote push tokens, reminders are local on your device only</li>
+    <li>No microphone use, no audio is recorded despite any declared Android permissions</li>
+    <li>No sharing of your data for advertising purposes</li>
+  </ul>
+
+  <h2 id="p4">4. Camera and Photo Library</h2>
+  <p>The App requires access to the camera to capture face photos for skin analysis. For positioning guidance, on-device face detection (ML Kit) may be used; image data is not transmitted to us for this purpose.</p>
+  <p>Photo library permission may be used to select existing photos.</p>
+  <p>Legal basis: Art. 6(1)(a) GDPR (consent via the operating system)</p>
+
+  <h2 id="p5">5. AI Processing</h2>
+  <p>We use artificial intelligence to analyze your skin and generate plans and recommendations. Processing runs server-side via Supabase Edge Functions.</p>
+
+  <h3>5.1 AI-Powered Features</h3>
+  <table>
+    <thead><tr><th>Feature</th><th style="text-align:left">Input data</th><th style="text-align:left">Stored</th></tr></thead>
+    <tbody>
+      <tr><td>Skin analysis (analyze-scan)</td><td>face photo + quiz context</td><td>scan results in database</td></tr>
+      <tr><td>Plan creation (generate-plan)</td><td>scores + quiz answers</td><td>plan in database</td></tr>
+      <tr><td>Product recommendations (recommend-products)</td><td>scores, quiz, budget, climate, stores</td><td>returned to app only</td></tr>
+      <tr><td>Weekly re-scan (weekly-rescan)</td><td>scan comparison, plan, adherence</td><td>new plan if changed</td></tr>
+    </tbody>
+  </table>
+
+  <h3>5.2 AI Providers</h3>
+  <p>Depending on server configuration, we use:</p>
+  <ul>
+    <li>Google Gemini (default, e.g. model gemini-2.5-flash), and/or</li>
+    <li>OpenAI (e.g. model gpt-4o).</li>
+  </ul>
+  <p>For skin analysis, your photo is sent as a Base64-encoded JPEG to the respective vision service. Text data (quiz, scores) is sent to the text service.</p>
+  <p>AI output is cosmetic assessment only, not medical diagnosis.</p>
+
+  <h3>5.3 Rate Limits</h3>
+  <p>To prevent abuse, per-user daily limits apply on our servers, including:</p>
+  <ul>
+    <li>skin analysis: 5 calls/day</li>
+    <li>plan creation: 3 calls/day</li>
+    <li>product recommendations: 5 calls/day</li>
+    <li>weekly re-scan: 3 calls/day</li>
+  </ul>
+
+  <h2 id="p6">6. Recipients and Processors</h2>
+  <p>We use the following service providers:</p>
+  <table>
+    <thead><tr><th>Provider</th><th style="text-align:left">Purpose</th><th style="text-align:left">Location</th></tr></thead>
+    <tbody>
+      <tr><td>Supabase Inc.</td><td>auth, database, file storage, edge functions</td><td>EU region (configured)</td></tr>
+      <tr><td>Google LLC (Gemini)</td><td>AI image analysis and text generation</td><td>USA / global</td></tr>
+      <tr><td>OpenAI LLC (optional)</td><td>AI image analysis and text generation</td><td>USA</td></tr>
+      <tr><td>RevenueCat Inc.</td><td>subscription management</td><td>USA</td></tr>
+      <tr><td>Apple Inc.</td><td>App Store, Sign in with Apple, payments</td><td>global</td></tr>
+      <tr><td>Google LLC</td><td>Sign in with Google</td><td>global</td></tr>
+      <tr><td>OpenStreetMap / Overpass</td><td>store lookup</td><td>EU (overpass-api.de)</td></tr>
+      <tr><td>Open-Meteo</td><td>weather and climate data</td><td>EU</td></tr>
+    </tbody>
+  </table>
+  <p>Where required, we conclude data processing agreements (DPAs) under Art. 28 GDPR with processors. For transfers to third countries (especially the USA), we rely on appropriate safeguards, such as EU Standard Contractual Clauses.</p>
+
+  <h2 id="p7">7. Retention</h2>
+  <p>We retain personal data only as long as necessary for the purposes described:</p>
+  <ul>
+    <li>account data, quiz, scans, plans: for as long as your account exists,</li>
+    <li>face photos: for as long as your account exists or until you delete your data,</li>
+    <li>subscription/webhook logs: as required by law and for technical necessity,</li>
+    <li>local device data: until you delete data in the App or uninstall the App.</li>
+  </ul>
+
+  <h2 id="p8">8. Deleting Your Data</h2>
+  <h3>8.1 "Delete Data" in the App</h3>
+  <p>Under Settings → Delete Data, you can permanently delete your data. After confirmation:</p>
+  <p>If you are signed in, we delete:</p>
+  <ul>
+    <li>your account (Supabase Auth),</li>
+    <li>your profile, onboarding quiz, scan results, plans, product selections, and routine history from our database (via cascade delete),</li>
+    <li>all face photos stored in our private cloud storage (face-scans bucket),</li>
+    <li>your local data on the device (local scan photos, app state, and preferences).</li>
+  </ul>
+  <p>If you are not signed in, we delete local data on your device only (local scan photos and app state).</p>
+  <p>This action cannot be undone.</p>
+  <p>If deletion fails (e.g. no network connection), you will see an error message and your data will not be removed until deletion succeeds.</p>
+
+  <h3>8.2 Sign Out</h3>
+  <p>Sign Out in Settings ends your session only. Your stored server data remains until you use Delete Data or request deletion by email.</p>
+
+  <h3>8.3 Deletion by Email</h3>
+  <p>You may also request deletion of your account and associated data at any time by emailing:</p>
+  <p><a href="mailto:daybeeapp-privacy@web.de">daybeeapp-privacy@web.de</a><br>
+  Subject: "Sharp account deletion"</p>
+  <p>We will process your request within 30 days, unless legal retention obligations apply.</p>
+
+  <h2 id="p9">9. No Medical Diagnosis</h2>
+  <p>Sharp is a cosmetic skincare tool. Analyses, scores, and recommendations:</p>
+  <ul>
+    <li>are not medical diagnoses,</li>
+    <li>do not replace a visit to a healthcare professional,</li>
+    <li>do not constitute treatment promises.</li>
+  </ul>
+  <p>For skin conditions, severe reactions, or health concerns, consult qualified medical personnel.</p>
+
+  <h2 id="p10">10. No Advertising / No Ad Profiling</h2>
+  <p>We do not show ads in the App and do not build advertising profiles. Amazon affiliate links in product recommendations are for product linking only, not for tracking your browsing behavior.</p>
+
+  <h2 id="p11">11. Security</h2>
+  <p>We implement appropriate technical and organizational measures, including:</p>
+  <ul>
+    <li>encrypted transmission (HTTPS/TLS),</li>
+    <li>JWT authentication,</li>
+    <li>private storage of face photos (not publicly accessible),</li>
+    <li>Row Level Security (RLS) in the database, users can access only their own data,</li>
+    <li>server-side validation of AI output and upload paths,</li>
+    <li>rate limiting for AI calls.</li>
+  </ul>
+  <p>Absolute security cannot be guaranteed.</p>
+
+  <h2 id="p12">12. Your Rights</h2>
+  <p>You have the following rights against us:</p>
+  <ul>
+    <li>access (Art. 15 GDPR),</li>
+    <li>rectification (Art. 16 GDPR),</li>
+    <li>erasure (Art. 17 GDPR),</li>
+    <li>restriction of processing (Art. 18 GDPR),</li>
+    <li>data portability (Art. 20 GDPR),</li>
+    <li>objection (Art. 21 GDPR),</li>
+    <li>withdrawal of consent (Art. 7(3) GDPR) with effect for the future.</li>
+  </ul>
+  <p>To exercise your rights, email <a href="mailto:daybeeapp-privacy@web.de">daybeeapp-privacy@web.de</a>.</p>
+
+  <h2 id="p13">13. Right to Lodge a Complaint</h2>
+  <p>You have the right to lodge a complaint with a supervisory authority, in particular in the EU member state of your residence.</p>
+  <p>In Germany, for example:</p>
+  <p>Federal Commissioner for Data Protection and Freedom of Information (BfDI)<br>
+  <a href="https://www.bfdi.bund.de" target="_blank" rel="noopener">https://www.bfdi.bund.de</a></p>
+  <p>Or the data protection authority of your federal state.</p>
+
+  <h2 id="p14">14. Requirement to Provide Data</h2>
+  <p>Account data and face photos are required for core App features. Without registration and photos, analysis, plans, and progress tracking cannot be used. Location and reminders are optional.</p>
+
+  <h2 id="p15">15. Minors</h2>
+  <p>The App is intended for users aged 16 and older. We do not knowingly collect data from children under 16.</p>
+
+  <h2 id="p16">16. Changes to This Privacy Policy</h2>
+  <p>We may update this policy when legal requirements, App features, or services change. The current version is available in the App and on this website.</p>
+  <p>We will notify you appropriately of material changes.</p>
+
+  <p style="margin-top:34px"><a href="index.html" style="font-weight:640">← Back to home</a></p>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-bot" style="border-top:0;padding-top:0">
+      <span>© 2026 Sharp · Esat Karabiyik</span>
+      <span><a href="terms.html">Terms of Service</a> · <a href="impressum.html">Impressum</a> · <a href="mailto:daybeeapp-privacy@web.de">daybeeapp-privacy@web.de</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
