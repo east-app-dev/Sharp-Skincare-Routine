@@ -29,7 +29,7 @@
   <div class="wrap">
     <span class="eyebrow">Legal</span>
     <h1>Privacy Policy</h1>
-    <p class="upd">Last updated: June 2026</p>
+    <p class="upd">Last updated: July 3, 2026</p>
   </div>
 </section>
 
@@ -98,8 +98,8 @@
   </ul>
   <p>Storage:</p>
   <ul>
-    <li>photos: private Supabase storage bucket face-scans</li>
-    <li>metadata and results: Supabase database (scans)</li>
+    <li>photos: uploaded to a private, access-controlled storage bucket (face-scans) solely so the automated analysis can run. The photo is deleted from our servers immediately after the analysis has been performed &mdash; typically within seconds of upload. We do not store face photos at rest on our servers (see Section 7). Your before/after photos are stored only locally on your device.</li>
+    <li>metadata and results (numeric scores and short cosmetic text findings &mdash; no facial imagery): Supabase database (scans)</li>
   </ul>
   <p>Purpose: cosmetic skin analysis, progress tracking, plan adaptation<br>
   Legal basis: Art. 6(1)(b) GDPR; for processing of facial images, where applicable Art. 9(2)(a) GDPR (explicit consent), which you give by actively using the scan feature.</p>
@@ -221,10 +221,11 @@
   <h2 id="p7">7. Retention</h2>
   <p>We retain personal data only as long as necessary for the purposes described:</p>
   <ul>
-    <li>account data, quiz, scans, plans: for as long as your account exists,</li>
-    <li>face photos: for as long as your account exists or until you delete your data,</li>
+    <li><b>face photos: transient processing only &mdash; we do not store face photos at rest on our servers.</b> An uploaded face photo is kept on our servers only for the moment it takes to run the automated cosmetic analysis and is deleted automatically as soon as the analysis has been performed, typically within seconds of upload. We use this minimal retention period because the photo is needed solely to compute your cosmetic scores; nothing in the service requires the server to keep it afterwards. In the rare case that an analysis cannot be completed (e.g. a network error), the residual upload is deleted automatically with your next scan and, in any event, immediately when you delete your data or account. The photos shown in the App (e.g. before/after comparison) are stored exclusively locally on your device and never leave it except for the transient analysis described above,</li>
+    <li>scan results (numeric scores and short cosmetic text findings &mdash; these contain no facial imagery and are not face data): for as long as your account exists, so the App can track your progress over time,</li>
+    <li>account data, quiz, plans: for as long as your account exists,</li>
     <li>subscription/webhook logs: as required by law and for technical necessity,</li>
-    <li>local device data: until you delete data in the App or uninstall the App.</li>
+    <li>local device data (including your face photos for the before/after view): until you delete data in the App or uninstall the App.</li>
   </ul>
 
   <h2 id="p8">8. Deleting Your Data</h2>
