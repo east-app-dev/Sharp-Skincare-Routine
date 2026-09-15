@@ -76,4 +76,59 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
   tick();
+
+  // tiktok in-app browser overlay: only for the bio link (?tt) and only inside an in-app webview,
+  // so "Open in browser" (same URL, now in Safari) never shows it again
+  var tt = document.getElementById('ttOverlay');
+  if (tt) {
+    var store = function (op, key, val) {
+      try { return op === 'get' ? sessionStorage.getItem(key) : sessionStorage.setItem(key, val); } catch (e) { return null; }
+    };
+    var qs = window.location.search;
+    var param = function (name) {
+      try { return new URLSearchParams(qs).has(name); } catch (e) { return new RegExp('[?&]' + name + '(=|&|$)').test(qs); }
+    };
+    var ua = navigator.userAgent || '';
+    var isTikTok = /musical_ly|BytedanceWebview|TikTok|trill_/i.test(ua);
+    var isIOS = /iPhone|iPad|iPod/.test(ua);
+    var isWebView = (isIOS && !/Safari\//.test(ua)) || /; wv\)/.test(ua);
+    var debug = param('ttdebug');
+    var fromBio = param('tt') || /[?&]src=tiktok/i.test(qs);
+    if (fromBio) store('set', 'sharp_tt', '1');
+    var active = debug || ((fromBio || store('get', 'sharp_tt')) && (isTikTok || isWebView));
+
+    if (active) {
+      var skip = document.getElementById('ttSkip');
+      var lock = function (on) {
+        document.documentElement.style.overflow = on ? 'hidden' : '';
+        document.body.style.overflow = on ? 'hidden' : '';
+      };
+      var openTT = function () {
+        tt.hidden = false;
+        lock(true);
+        void tt.offsetWidth; // commit display before fading in (rAF can stall in backgrounded webviews)
+        tt.classList.add('show');
+        if (skip) skip.focus({ preventScroll: true });
+      };
+      var closeTT = function () {
+        tt.classList.remove('show');
+        lock(false);
+        store('set', 'sharp_tt_seen', '1');
+        setTimeout(function () { tt.hidden = true; }, 250);
+      };
+
+      if (skip) skip.addEventListener('click', closeTT);
+      tt.addEventListener('click', function (e) { if (e.target === tt) closeTT(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !tt.hidden) closeTT(); });
+      // App Store links are dead inside TikTok: bring the hint back instead
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href*="apps.apple.com"]');
+        if (!a) return;
+        e.preventDefault();
+        openTT();
+      }, true);
+
+      if (debug || !store('get', 'sharp_tt_seen')) openTT();
+    }
+  }
 })();
