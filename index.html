@@ -266,6 +266,29 @@
   </div>
 </footer>
 
+<!-- TikTok in-app browser hint: only shown on ?tt inside TikTok (see main.js) -->
+<div class="tt-overlay" id="ttOverlay" role="dialog" aria-modal="true" aria-labelledby="ttTitle" hidden>
+  <svg class="tt-arrow" viewBox="0 0 150 200" fill="none" aria-hidden="true">
+    <path d="M20 196C22 112 70 40 134 13" />
+    <path d="M114.5 8.8L134 13L123.3 29.9" />
+  </svg>
+  <div class="tt-card">
+    <h2 id="ttTitle">Open Sharp in your browser</h2>
+    <div class="tt-step">
+      <span class="tt-badge">1</span>
+      <span>Tap <b class="tt-dots">•••</b> in the top right</span>
+    </div>
+    <div class="tt-step">
+      <span class="tt-badge">2</span>
+      <span>Tap
+        <b class="tt-open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg>Open in browser</b>
+      </span>
+    </div>
+    <p class="tt-note">TikTok blocks App Store links. Safari opens them directly.</p>
+    <button type="button" class="tt-skip" id="ttSkip">Continue to site</button>
+  </div>
+</div>
+
 <script src="main.js"></script>
 </body>
 </html>
