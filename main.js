@@ -77,6 +77,21 @@
   window.addEventListener('resize', onScroll);
   tick();
 
+  // account attribution: ?c=<code> sends App Store taps through the tracking function,
+  // which logs the click for that account and redirects to the App Store with ct=<code>.
+  // The param survives "Open in browser" because the URL stays the same.
+  var TRACK = 'https://fjiyphiqmtworjezjrzm.supabase.co/functions/v1/track?c=';
+  var code = '';
+  try { code = new URLSearchParams(window.location.search).get('c') || sessionStorage.getItem('sharp_c') || ''; } catch (e) {}
+  code = String(code).toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 32);
+  if (code) {
+    try { sessionStorage.setItem('sharp_c', code); } catch (e) {}
+    Array.prototype.forEach.call(document.querySelectorAll('a[href*="apps.apple.com"]'), function (a) {
+      a.setAttribute('data-store', '1');
+      a.href = TRACK + encodeURIComponent(code);
+    });
+  }
+
   // tiktok in-app browser overlay: only for the bio link (?tt) and only inside an in-app webview,
   // so "Open in browser" (same URL, now in Safari) never shows it again
   var tt = document.getElementById('ttOverlay');
@@ -122,7 +137,7 @@
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !tt.hidden) closeTT(); });
       // App Store links are dead inside TikTok: bring the hint back instead
       document.addEventListener('click', function (e) {
-        var a = e.target.closest && e.target.closest('a[href*="apps.apple.com"]');
+        var a = e.target.closest && e.target.closest('a[href*="apps.apple.com"], a[data-store]');
         if (!a) return;
         e.preventDefault();
         openTT();
